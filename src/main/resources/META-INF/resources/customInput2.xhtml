@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui">
+<body>
+<form jsf:id="in">
+    <label class="ui-label" jsf:for="fecha"
+           jsf:value="Fecha"/><br/>
+    <br/>
+    <input jsf:id="fecha" size="40"
+           jsf:value="#{customInputBean.fecha}" data-required="true"
+           type="date" placeholder="Introduzca su fecha de nacimiento" autofocus="autofocus">
+        <f:converter converterId="dateConverter"/>
+        <f:validator validatorId="dateValidator"/>
+    </input>
+    <label class="ui-label" jsf:value="#{customInputBean.fecha}"/><br/>
+    <br/>
+    <button type="submit">Enviar</button>
+    <br/>
+    <p:messages redisplay="true" autoUpdate="true"/>
+</form>
+</body>
+</html>
