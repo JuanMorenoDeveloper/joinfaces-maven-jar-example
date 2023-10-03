@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @ViewScoped
-@Component
+@Component // No se requiere si no se usa Spring
 public class CustomInputBean implements Serializable {
     private LocalDate fecha;
 

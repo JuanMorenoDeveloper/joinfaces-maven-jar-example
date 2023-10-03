@@ -26,7 +26,7 @@ import java.io.Serializable;
  *
  * @author Marcelo Fernandes
  */
-@Component
+@Component // No se requiere si no se usa Spring
 @ViewScoped
 public class StarterMBean implements Serializable {
 
