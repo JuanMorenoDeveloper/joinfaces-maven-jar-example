@@ -8,18 +8,34 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="/template.xhtml">
     <ui:define name="content" >
-        <h:form>
+        <h:form id="form1">
+            <p:remoteCommand id="remoteId" name="hi2" update="customFecha" action="#{customInputBean.execute}"
+                             oncomplete="alert('Return value from server: ' + args.serverTime)"/>
+            />
             <h:messages/>
             <p:panelGrid columns="1" layout="grid" id="panel">
-                <h:inputText pt:type="date" pt:placeholder="Ingrese fecha" value="#{customInputBean.fecha}">
-                    <f:converter converterId="dateConverter"/>
-                    <f:validator validatorId="dateValidator"/>
-                </h:inputText>
-                <h:outputText value="#{customInputBean.fecha}">
-                    <f:converter converterId="dateConverter"/>
-                </h:outputText>
+<!--                <h:inputText pt:type="date" pt:placeholder="Ingrese fecha" value="#{customInputBean.fecha}">-->
+<!--                    <f:converter converterId="dateConverter"/>-->
+<!--                    <f:validator validatorId="dateValidator"/>-->
+<!--                </h:inputText>-->
+<!--                <h:outputText value="#{customInputBean.fecha}">-->
+<!--                    <f:converter converterId="dateConverter"/>-->
+<!--                </h:outputText>-->
+                <p:datePicker id="customFecha" value="#{customInputBean.fecha}" onMonthChange="hi"/>
                 <h:commandButton value="Submit"/>
             </p:panelGrid>
         </h:form>
+        <script type="text/javascript">
+            function hi() {
+                alert('calling onMonthChange')
+                var promise = hi2();
+                promise.then(function (responseData) {
+                    var serverTime = responseData.jqXHR.pfArgs.serverTime;
+                    console.log("Request successful, returned server time is", serverTime);
+                }).catch(function (error) {
+                    console.error("Request failed", error);
+                });
+            }
+        </script>
     </ui:define>
 </ui:composition>
