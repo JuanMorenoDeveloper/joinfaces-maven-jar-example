@@ -1,13 +1,10 @@
 package org.joinfaces.example.view;
 
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.convert.Converter;
+import jakarta.faces.convert.FacesConverter;
 import java.time.LocalDate;
-import java.util.Date;
 
 
 @FacesConverter("dateConverter")

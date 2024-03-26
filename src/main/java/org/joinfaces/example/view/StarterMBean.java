@@ -18,7 +18,7 @@ package org.joinfaces.example.view;
 
 import org.springframework.stereotype.Component;
 
-import javax.faces.view.ViewScoped;
+import jakarta.faces.view.ViewScoped;
 import java.io.Serializable;
 
 /**

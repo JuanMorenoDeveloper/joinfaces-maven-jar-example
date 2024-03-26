@@ -11,7 +11,8 @@
         <h:form id="form1">
             <p:remoteCommand id="remoteId" name="hi2" update="customFecha" action="#{customInputBean.execute}"
                              oncomplete="alert('Return value from server: ' + args.serverTime)"/>
-            />
+            <p:remoteCommand name="increment" action="#{customInputBean.increment}" update="count" />
+            <h:outputText id="count" value="#{customInputBean.count}" />
             <h:messages/>
             <p:panelGrid columns="1" layout="grid" id="panel">
 <!--                <h:inputText pt:type="date" pt:placeholder="Ingrese fecha" value="#{customInputBean.fecha}">-->
@@ -21,11 +22,14 @@
 <!--                <h:outputText value="#{customInputBean.fecha}">-->
 <!--                    <f:converter converterId="dateConverter"/>-->
 <!--                </h:outputText>-->
-                <p:datePicker id="customFecha" value="#{customInputBean.fecha}" onMonthChange="hi"/>
+                <p:datePicker id="customFecha" value="#{customInputBean.fecha}" onclick="hi3"/>
                 <h:commandButton value="Submit"/>
             </p:panelGrid>
         </h:form>
         <script type="text/javascript">
+            function hi3() {
+                alert('calling onClick')
+            }
             function hi() {
                 alert('calling onMonthChange')
                 var promise = hi2();
